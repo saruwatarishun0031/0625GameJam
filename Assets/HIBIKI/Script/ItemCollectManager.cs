@@ -22,10 +22,13 @@ public class ItemCollectManager : MonoBehaviour
 
     static float _getScoreValue;
 
+    static bool _miss;
+
 
     void Start()
     {
         _getScoreValue = _getScore;
+        ResetCollect();
     }
 
 
@@ -37,6 +40,7 @@ public class ItemCollectManager : MonoBehaviour
     public static void ResetCollect()
     {
         _collectHA = _collectNA = _collectSU = false;
+        _miss = false;
         Debug.Log("コレクトをリセット");
     }
 
@@ -52,7 +56,7 @@ public class ItemCollectManager : MonoBehaviour
                 }
 
                 _collectHA = true;
-                CollectSuccess();
+                Collect();
                 break;
 
             case ItemKind.na:
@@ -63,7 +67,7 @@ public class ItemCollectManager : MonoBehaviour
                 }
 
                 _collectNA = true;
-                CollectSuccess();
+                Collect();
                 break;
 
             case ItemKind.su:
@@ -74,7 +78,7 @@ public class ItemCollectManager : MonoBehaviour
                 }
 
                 _collectSU = true;
-                CollectSuccess();
+                Collect();
                 break;
 
             case ItemKind.hana:
@@ -85,7 +89,7 @@ public class ItemCollectManager : MonoBehaviour
                 }
 
                 _collectHA = _collectNA = true;
-                CollectSuccess();
+                Collect();
                 break;
 
             case ItemKind.nasu:
@@ -96,7 +100,7 @@ public class ItemCollectManager : MonoBehaviour
                 }
 
                 _collectNA = _collectSU = true;
-                CollectSuccess();
+                Collect();
                 break;
             case ItemKind.hasu:
                 if (_collectHA || _collectSU)
@@ -106,13 +110,13 @@ public class ItemCollectManager : MonoBehaviour
                 }
 
                 _collectHA = _collectSU = true;
-                CollectSuccess();
+                Collect();
                 break;
         }
 
     }
 
-    static void CollectSuccess()
+    static void Collect()
     {
 
         if (_collectHA)
@@ -129,18 +133,23 @@ public class ItemCollectManager : MonoBehaviour
         {
             Debug.Log("す");
         }
-
-        ScoreManager.GetScore(_getScoreValue);
-
-        if (_collectHA && _collectNA && _collectSU)
-        {
-            ResetCollect();
-        }
     }
 
     static void CollectFailed()
     {
         Debug.Log("間違えた");
+        _miss = true;
+    }
+
+    public static void Verification()
+    {
+        if (_collectHA && _collectNA && _collectSU && !_miss)
+        {
+            ScoreManager.GetScore(_getScoreValue);
+            Debug.Log("成功");
+        }
+
+        ResetCollect();
     }
 
 }
