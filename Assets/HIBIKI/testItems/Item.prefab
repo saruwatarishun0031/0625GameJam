@@ -118,8 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51353cbb3ae92444baba93c189756ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _thisItemKind: 0
   _dropSpeed: 1
   _swingSpeed: 1
-  _swingValue: 1
-  _getScoreValue: 100
-  E_ItemKind: 0
+  _swingValue: 0.5

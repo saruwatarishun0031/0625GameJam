@@ -56,7 +56,7 @@ public class ItemCollectManager : MonoBehaviour
         _imageHA.SetActive(false);
         _imageNA.SetActive(false);
         _imageSU.SetActive(false);
-        
+
         _miss = false;
 
         Debug.Log("コレクトをリセット");
@@ -67,44 +67,24 @@ public class ItemCollectManager : MonoBehaviour
         switch (kind)
         {
             case ItemKind.ha:
-                if (_collectHA)
-                {
-                    CollectFailed();
-                }
-
                 _collectHA = !_collectHA;
                 _imageHA.SetActive(_collectHA);
                 Collect();
                 break;
 
             case ItemKind.na:
-                if (_collectNA)
-                {
-                    CollectFailed();
-                }
-
                 _collectNA = !_collectNA;
                 _imageNA.SetActive(_collectNA);
                 Collect();
                 break;
 
             case ItemKind.su:
-                if (_collectSU)
-                {
-                    CollectFailed();
-                }
-
                 _collectSU = !_collectSU;
                 _imageSU.SetActive(_collectSU);
                 Collect();
                 break;
 
             case ItemKind.hana:
-                if (_collectHA || _collectNA)
-                {
-                    CollectFailed();
-                }
-
                 _collectHA = !_collectHA;
                 _collectNA = !_collectNA;
                 _imageHA.SetActive(_collectHA);
@@ -113,23 +93,14 @@ public class ItemCollectManager : MonoBehaviour
                 break;
 
             case ItemKind.nasu:
-                if (_collectNA || _collectSU)
-                {
-                    CollectFailed();
-                }
-
                 _collectNA = !_collectNA;
                 _collectSU = !_collectSU;
                 _imageNA.SetActive(_collectNA);
                 _imageSU.SetActive(_collectSU);
                 Collect();
                 break;
-            case ItemKind.hasu:
-                if (_collectHA || _collectSU)
-                {
-                    CollectFailed();
-                }
 
+            case ItemKind.hasu:
                 _collectHA = !_collectHA;
                 _collectSU = !_collectSU;
                 _imageHA.SetActive(_collectHA);
@@ -159,20 +130,14 @@ public class ItemCollectManager : MonoBehaviour
         }
     }
 
-    static void CollectFailed()
-    {
-        Debug.Log("間違えた");
-        _miss = true;
-    }
-
     public static void Verification()
     {
-        if (_collectHA && _collectNA && _collectSU && !_miss)
+        if (_collectHA && _collectNA && _collectSU)
         {
             ScoreManager.GetScore(_getScoreValue);
             Debug.Log("成功");
         }
-
+        
         ResetCollect();
     }
 
