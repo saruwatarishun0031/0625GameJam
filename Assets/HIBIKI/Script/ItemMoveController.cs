@@ -1,11 +1,15 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ItemMoveController : MonoBehaviour
+public class ItemMoveController : MonoBehaviour, IPointerClickHandler
 {
-    Vector3 _firstPos;
+    [SerializeField]
+    ItemCollectManager.ItemKind _thisItemKind;
 
     [SerializeField, Tooltip("縦の移動速度")]
     float _dropSpeed;
+
+    Vector3 _firstPos;
 
     [Space]
 
@@ -25,8 +29,15 @@ public class ItemMoveController : MonoBehaviour
     {
         _theta = (_theta + (_swingSpeed * Time.deltaTime)) % 360;
 
-        transform.position = new Vector3(Mathf.Cos(_theta) * _swingValue, transform.position.y, transform.position.z);
-        transform.Translate(Vector3.down * _dropSpeed * Time.deltaTime);
+        transform.position = new Vector3(Mathf.Cos(_theta) * _swingValue + _firstPos.x, -_dropSpeed * Time.deltaTime + transform.position.y, _firstPos.z);
+    }
 
+    public void OnPointerClick(PointerEventData data)
+    {
+        Debug.Log("クリックされた");
+
+        ItemCollectManager.CollectItem(_thisItemKind);
+
+        Destroy(gameObject);
     }
 }
