@@ -137,7 +137,10 @@ public class ItemCollectManager : MonoBehaviour
             ScoreManager.GetScore(_getScoreValue);
             Debug.Log("ê¨å˜");
         }
-        
+        else
+        {
+            ScoreManager.GetScore(-10);
+        }
         ResetCollect();
     }
 
