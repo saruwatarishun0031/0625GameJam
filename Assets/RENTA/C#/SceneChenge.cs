@@ -48,6 +48,6 @@ public class SceneChenge : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         //タイトルシーンの名前を入れる。
-        ScenechangeManager.Instance.LoadSceme("RENTAscene");
+        ScenechangeManager.Instance.LoadSceme("Title");
     }
 }
