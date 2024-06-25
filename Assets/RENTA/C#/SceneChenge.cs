@@ -16,20 +16,24 @@ public class SceneChenge : MonoBehaviour
     [SerializeField] private AudioSource Result;
     static float[] scoreArrey = new float[4];
 
-    float _scoreTptal;
-
+   
     void Start()
     {
-        scoreArrey = new float[4];
-        scoreArrey[3] = _scoreTptal;
+        scoreArrey[3] = ScoreManager.ScoreTotal;
+        for (int i = 0;i<3;i++)
+        {
+            Debug.Log(scoreArrey[i]);
+        }
         
         Array.Sort(scoreArrey);
         Array.Reverse(scoreArrey);
         float[] TopThreeScore = scoreArrey.Take(3).ToArray();
+        
 
         for (int i = 0; i < 3; i++) 
         {
             ScoreText[i].text = TopThreeScore[i].ToString();
+            Debug.Log(TopThreeScore[i]);
         }
     }
 
