@@ -31,9 +31,12 @@ public class ItemCollectManager : MonoBehaviour
 
     static bool _miss;
 
+    
+
 
     void Start()
     {
+        
         _getScoreValue = _getScore;
 
         _imageHA = _wordImages[0];
@@ -136,10 +139,12 @@ public class ItemCollectManager : MonoBehaviour
         {
             ScoreManager.GetScore(_getScoreValue);
             Debug.Log("ê¨å˜");
+            TalkJudgement.Instance._Success = true;
         }
         else
         {
             ScoreManager.GetScore(-10);
+            TalkJudgement.Instance._Failure = true;
         }
         ResetCollect();
     }
