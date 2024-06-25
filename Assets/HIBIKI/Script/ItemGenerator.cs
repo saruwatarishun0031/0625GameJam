@@ -36,10 +36,9 @@ public class ItemGenerator : MonoBehaviour
         int randomIndexItem = Random.Range(0, _items.Length);
         int randomIndexPosX = Random.Range(0, (int)laneValue);
 
-        float x = transform.position.x - weight / 2 + weight / (laneValue - 1) * randomIndexPosX ;
+        float x = transform.position.x - weight / 2 + weight / (laneValue - 1) * randomIndexPosX;
 
-        Instantiate(_items[randomIndexItem], transform.position + Vector3.right * x, Quaternion.identity);
-
-        Debug.Log(transform.position + Vector3.right * x);
+        GameObject item = Instantiate(_items[randomIndexItem], transform.position + Vector3.right * x, Quaternion.identity);
+        item.GetComponent<ItemMoveController>().enabled = true;
     }
 }

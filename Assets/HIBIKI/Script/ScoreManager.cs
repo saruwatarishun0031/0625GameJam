@@ -30,6 +30,6 @@ public class ScoreManager : MonoBehaviour
 
         Debug.Log(_scoreTotal);
 
-        ScoreText.text = $"Score : {_scoreTotal.ToString()}";
+        ScoreText.text = $"Score : {Mathf.FloorToInt(_scoreTotal).ToString("D5")}";
     }
 }
