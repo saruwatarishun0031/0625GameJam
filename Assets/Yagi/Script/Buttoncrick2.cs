@@ -10,8 +10,7 @@ public class Buttoncrick2 : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
-
-    void Test()
+    public void Playaudio()
     {
         audioSource.Play();
     }
