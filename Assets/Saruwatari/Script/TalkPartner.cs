@@ -19,6 +19,7 @@ public class TalkPartner : MonoBehaviour
 
     private void Start()
     {
+        ItemCollectManager.CollectItem(_thisItemKind);
         transform.DOLocalMove(new Vector3(8.28f, Y, 0), 1f);
     }
 
