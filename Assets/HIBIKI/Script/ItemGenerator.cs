@@ -39,7 +39,5 @@ public class ItemGenerator : MonoBehaviour
         float x = transform.position.x - weight / 2 + weight / (laneValue - 1) * randomIndexPosX ;
 
         Instantiate(_items[randomIndexItem], transform.position + Vector3.right * x, Quaternion.identity);
-
-        Debug.Log(transform.position + Vector3.right * x);
     }
 }
