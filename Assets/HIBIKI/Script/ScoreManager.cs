@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
 
     public static void GetScore(float score)
     {
-        _scoreTotal = Mathf.Max(_scoreTotal + score, 0);
+        _scoreTotal += score;
 
         Debug.Log(_scoreTotal);
 
