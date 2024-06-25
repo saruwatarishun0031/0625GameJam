@@ -139,12 +139,12 @@ public class ItemCollectManager : MonoBehaviour
         {
             ScoreManager.GetScore(_getScoreValue);
             Debug.Log("ê¨å˜");
-            TalkJudgement.Instance._Success = true;
+            TalkJudgement.Instance._success = true;
         }
         else
         {
             ScoreManager.GetScore(-10);
-            TalkJudgement.Instance._Failure = true;
+            TalkJudgement.Instance._failure = true;
         }
         ResetCollect();
     }
