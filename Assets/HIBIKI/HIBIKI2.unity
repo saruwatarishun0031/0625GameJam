@@ -1323,7 +1323,7 @@ MonoBehaviour:
   _items:
   - {fileID: 6203793133573549179, guid: 04dde6ce9cab2dc48a9e5a96d4e21637, type: 3}
   - {fileID: 6480812180357180251, guid: 2354fafb26b70f54ba5315d47a2fd113, type: 3}
-  - {fileID: 4052323332302708576, guid: c1a681f8a3ff1b6458e3b1373795e4bf, type: 3}
+  - {fileID: 7164313071396633027, guid: fefb4bc10f6d5e044b123728ad4cd1c3, type: 3}
 --- !u!135 &1240946044
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100745532789990651, guid: 04dde6ce9cab2dc48a9e5a96d4e21637, type: 3}
       propertyPath: _thisItemKind
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4113498673381290610, guid: 04dde6ce9cab2dc48a9e5a96d4e21637, type: 3}
       propertyPath: m_Materials.Array.size
